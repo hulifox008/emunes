@@ -17,4 +17,5 @@ struct nesbus
 
 struct nesbus *bus_new();
 
+void bus_writeb(u_int16_t addr, u_int8_t data);
 #endif /* _BUS_INCLUDED_ */
