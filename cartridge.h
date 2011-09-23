@@ -3,6 +3,11 @@
 
 #include <sys/types.h>
 
+#define     MIRRORING_MASK  1
+#define     SRAM_ENABLED    (1<<1)
+#define     TRAINER_ENABLED (1<<2)
+#define     FOUR_SCREEN     (1<<3)
+
 struct ines_header
 {
     char        magic[4]; /* "NES\x1a" */    

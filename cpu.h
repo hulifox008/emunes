@@ -25,4 +25,6 @@ void cpu_reset(struct cpu6502 *cpu);
 /* Execute one instruction */
 void cpu_step(struct cpu6502 *cpu);
 
+void cpu_nmi(struct cpu6502 *cpu);
+
 #endif /* _CPU_INCLUDED_ */

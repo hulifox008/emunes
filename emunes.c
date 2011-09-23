@@ -46,15 +46,6 @@ int main()
     }
     printf("RAM allocated.\n");
 
-
-    unsigned char *vram = memory_allocate(VRAM_SIZE);
-    if(NULL==vram)
-    {
-        fprintf(stderr, "Cannot allocate VRAM!\n");
-        return 1;
-    }
-    printf("VRAM allocated.\n");
-
     struct nesbus *bus = bus_new();
     if(NULL==bus)
     {
@@ -66,7 +57,6 @@ int main()
     bus->cart = cart;
     bus->ppu = ppu;
     bus->ram = ram;
-    bus->vram = ram;
 
     cpu->bus = bus;
     start_emulator(cpu);
