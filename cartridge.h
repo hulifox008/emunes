@@ -29,4 +29,8 @@ struct cartridge * cartridge_load_game(const char *filename);
 
 void cartridge_free(struct cartridge *cart);
 
+u_int8_t cartridge_readb(struct cartridge *cart, u_int16_t addr);
+
+void cartridge_writeb(struct cartridge *cart, u_int16_t addr, u_int8_t data);
+
 #endif /* _CARTRIDGE_INCLUDED_ */

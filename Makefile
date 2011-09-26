@@ -10,6 +10,6 @@ emunes: ${OBJS}
 
 .PHONY: clean
 clean:
-	rm *.o
-	rm emunes 
+	rm -f *.o
+	rm -f emunes 
 

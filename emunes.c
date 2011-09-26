@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 #include "common.h"
 #include "cpu.h"
 #include "cartridge.h"
@@ -8,6 +9,12 @@
 
 int start_emulator(struct cpu6502 *cpu)
 {
+    cpu_reset(cpu);
+    while(1)
+    {
+        cpu_step(cpu);
+        sleep(1);
+    }
     return 0;
 }
 

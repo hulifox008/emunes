@@ -49,8 +49,8 @@ struct cartridge *cartridge_load_game(const char *filename)
     printf("PRG ROM: %dK\n", cart->header.prg_rom_size*16); 
     printf("CHR ROM: %dK\n", cart->header.chr_rom_size*8); 
 
-    int prg_size = cart->header.prg_rom_size*1024;
-    int chr_size = cart->header.chr_rom_size*1024;
+    int prg_size = cart->header.prg_rom_size*16*1024;
+    int chr_size = cart->header.chr_rom_size*8*1024;
     if(size < (prg_size + chr_size + sizeof(cart->header)))
     {
         fprintf(stderr, "Invalid ROM File!\n");
@@ -95,4 +95,18 @@ void cartridge_free(struct cartridge *cart)
 
        free(cart);
     }
+}
+
+/* addr is in 0x8000 - 0xFFFF */
+inline u_int8_t cartridge_readb(struct cartridge *cart, u_int16_t addr)
+{
+    /* TODO: Implement mapper ... */
+    return cart->prg_rom[addr&0x7FFF];
+}
+
+/* addr is in 0x8000 - 0xFFFF */
+inline void cartridge_writeb(struct cartridge *cart, u_int16_t addr, u_int8_t data)
+{
+    /* TODO: Implement mapper ... */
+        
 }
